@@ -2,4 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="memberMapper">
+	
+	<insert id="insertMember" parameterType="memberDTO">
+		INSERT INTO 
+    			MEMBER 
+    	VALUES (
+				#{memberId},
+				#{memberNm},
+				#{passwd},
+             	#{sex},
+               	#{birthDt},
+               	#{hp},
+                #{smsstsYn},
+                #{email},
+                #{emailstsYn},
+                #{zipcode},
+                #{roadAddress},
+                #{jibunAddress},
+                #{namujiAddress},
+                0,
+                NOW()
+        )
+	</insert>
+
 </mapper>
