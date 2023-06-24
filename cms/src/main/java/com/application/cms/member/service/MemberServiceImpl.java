@@ -25,6 +25,29 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public boolean loginMember(MemberDTO memberDTO) throws Exception {
+		
+		MemberDTO dbMemberId = memberDAO.selectOneLoginMember(memberDTO);
+		if (dbMemberId != null) {
+			if (bCryptPasswordEncoder.matches(memberDTO.getPasswd(), dbMemberId.getPasswd())) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public int getMyOrderCnt(String memberId) throws Exception {
+		return memberDAO.selectMyOrderCnt(memberId);
+	}
+
+	@Override
+	public int getMyCartCnt(String memberId) throws Exception {
+		return memberDAO.selectMyCartCnt(memberId);
+	}
+
 	
 	
 }

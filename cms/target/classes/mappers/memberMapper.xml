@@ -3,7 +3,7 @@
 
 <mapper namespace="memberMapper">
 	
-	<insert id="insertMember" parameterType="memberDTO">
+	<insert id="insertMember" parameterType="MemberDTO">
 		INSERT INTO 
     			MEMBER 
     	VALUES (
@@ -25,4 +25,31 @@
         )
 	</insert>
 
+	<select id="selectOneLoginMember" resultType="MemberDTO" parameterType="String">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>	
+		
+	<select id="selectMyOrderCnt" resultType="int" parameterType="String">
+		SELECT
+				COUNT(*)
+		FROM
+				`ORDER`
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="selectMyCartCnt" resultType="int" parameterType="String">
+		SELECT
+				COUNT(*)
+		FROM
+				CART
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
 </mapper>

@@ -19,7 +19,7 @@
 
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
             	<h1 class="mb-3 mt-5 bread">Register</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Checout</span></p>
+	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Register</span></p>
             </div>
 
           </div>
@@ -31,19 +31,19 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-8 ftco-animate">
-			<form action="${contextPath }/member/register" class="billing-form p-3 p-md-5">
+			<form action="${contextPath }/member/register" method="post" class="billing-form p-3 p-md-5">
 				<h3 class="mb-4 billing-heading">회원가입</h3>
 	          	
 	              	<div class="col-md-8">
 	                	<div class="form-group">
 	                		<label>아이디</label>
-	                 		<p><input type="password" id="password" name="password" class="form-control" placeholder="아이디를 입력해주세요" required></p>
+	                 		<input type="text" id="memberId" name="memberId" class="form-control" placeholder="아이디를 입력해주세요" required>
 	                	</div>
                 	</div>
 	              	<div class="col-md-8">
 	                	<div class="form-group">
 	                		<label>비밀번호</label>
-	                 		<p><input type="password" id="password" name="password" class="form-control" placeholder="비밀번호를 입력해주세요" required></p>
+	                 		<input type="password" id="passwd" name="passwd" class="form-control" placeholder="비밀번호를 입력해주세요" required>
 	                	</div>
                 	</div>
 	              	<div class="col-md-8">
@@ -55,7 +55,7 @@
 	              	<div class="col-md-8">
 	                	<div class="form-group">
 	                		<label>이름</label>
-	                 		<input type="password" id="confirmPasswd" class="form-control" placeholder="이름을 입력하세요" required>
+	                 		<input type="text" name="memberNm" class="form-control" placeholder="이름을 입력하세요" required>
 	                	</div>
                		 </div>
                		 
@@ -140,7 +140,7 @@
 	                	<div class="form-group">
                             <div class="checkbox"></div>
 	                		<label>이메일</label>
-	                 		<p><input type="text" name="email" class="form-control" placeholder="이메일을 입력하세요" required></p>
+	                 		<p><input type="email" name="email" class="form-control" placeholder="이메일을 입력하세요" required></p>
 	                		<label for="smsstsYn">
                                  CMS에서 발송하는 email을 수신합니다.
                                  <input type="checkbox" id="smsstsYn" name="smsstsYn" value="Y" class="mr-2">
@@ -174,7 +174,7 @@
 	               		</div>
 		            </div>
 		            
-		            <div align="center">
+		            <div align="right">
                         <button type="submit" class="btn btn-primary py-3 px-4">가입</button>
                     </div>
 		            

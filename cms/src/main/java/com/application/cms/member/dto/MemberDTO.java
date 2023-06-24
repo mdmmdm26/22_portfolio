@@ -110,5 +110,16 @@ public class MemberDTO {
 	public void setJoinDt(Date joinDt) {
 		this.joinDt = joinDt;
 	}
+	
+	@Override
+	public String toString() {
+		return "MemberDTO [memberId=" + memberId + ", memberNm=" + memberNm + ", passwd=" + passwd + ", sex=" + sex
+				+ ", birthDt=" + birthDt + ", hp=" + hp + ", smsstsYn=" + smsstsYn + ", email=" + email
+				+ ", emailstsYn=" + emailstsYn + ", zipcode=" + zipcode + ", roadAddress=" + roadAddress
+				+ ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress + ", point=" + point
+				+ ", joinDt=" + joinDt + "]";
+	}
+	
+	
 		
 }

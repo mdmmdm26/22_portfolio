@@ -17,4 +17,19 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.insert("memberMapper.insertMember", memberDTO);
 	}
 
+	@Override
+	public MemberDTO selectOneLoginMember(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectOneLoginMember", memberDTO);
+	}
+
+	@Override
+	public int selectMyOrderCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectMyOrderCnt", memberId);
+	}
+
+	@Override
+	public int selectMyCartCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectMyCartCnt", memberId);
+	}
+
 }

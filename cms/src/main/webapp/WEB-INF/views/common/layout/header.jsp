@@ -32,11 +32,20 @@
             <li class="nav-item dropdown">
             	<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
               	<div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="${contextPath }/member/register">Register</a>
-                <a class="dropdown-item" href="room.html">Login</a>
+                <a class="dropdown-item" href="${contextPath }/member/myPage">MyPage</a>
               </div>
             </li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <c:choose>
+	          	<c:when test="${sessionScope.memberId eq null }">
+		          	<li class="nav-item"><a href="${contextPath }/member/login">login</a></li>
+		          	<li>/</li>
+		          	<li class="nav-item"><a href="${contextPath }/member/register">register</a></li>
+	          	</c:when>
+	          	<c:otherwise>
+	          	  	<li class="nav-item"><a href="${contextPath }/member/logout">logout</a></li>
+	          	</c:otherwise>
+	          </c:choose>
 	          <li class="nav-item cart"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
 	        </ul>
 	      </div>
