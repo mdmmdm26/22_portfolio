@@ -9,6 +9,12 @@
 </head>
 <body>
 
+	<c:if test="${sessionScope.memberId eq null }">
+		<script>
+			alert("로그인을 해주세요");
+			location.href="${contextPath}/member/login"
+		</script>
+	</c:if>
 	
 	<section class="home-slider owl-carousel">
 
@@ -19,7 +25,7 @@
 
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
             	<h1 class="mb-3 mt-5 bread">MyPage</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>MyPage</span></p>
+	            <p class="breadcrumbs"><span class="mr-2"><a href="${contextPath }/">Home</a></span> <span>MyPage</span></p>
             </div>
 
           </div>
@@ -31,13 +37,17 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-8 ftco-animate">
-			<form action="${contextPath }/myPage/myInfo" method="post" class="billing-form p-3 p-md-5">
+			<form action="${contextPath }/myPage/modifyInfo" method="post" class="billing-form p-3 p-md-5">
 				<h3 class="mb-4 billing-heading">내 정보</h3>
+				
+		            <div align="right">
+                        <button class="btn btn-primary py-3 px-4" onclick="location.href='${contextPath}/myPage/removeMember?memberId=${memberDTO.memberId }'">회원탈퇴</button>
+                    </div>
 	          	
 	              	<div class="col-md-8">
 	                	<div class="form-group">
 	                		<label>아이디</label>
-	                 		<input type="text" id="memberId" name="memberId" class="form-control" placeholder="아이디를 입력해주세요" required>
+	                 		<input type="text" id="memberId" name="memberId" class="form-control" value="${memberDTO.memberId }" readonly>
 	                	</div>
                 	</div>
 	              	<div class="col-md-8">
@@ -55,10 +65,15 @@
 	              	<div class="col-md-8">
 	                	<div class="form-group">
 	                		<label>이름</label>
-	                 		<input type="text" name="memberNm" class="form-control" placeholder="이름을 입력하세요" required>
+	                 		<input type="text" name="memberNm" class="form-control" value="${memberDTO.memberNm }" required>
 	                	</div>
                		 </div>
-               		 
+	              	<div class="col-md-8">
+	                	<div class="form-group">
+	                		<label>포인트</label>
+	                 		<input type="text" name="point" class="form-control" value="${memberDTO.point }" readonly>
+	                	</div>
+               		 </div>
                		 <div class="w-100"></div>
                		 <div class="col-md-12">
                			<div class="form-group mt-4">
@@ -128,7 +143,7 @@
 	                	<div class="form-group">
                             <div class="checkbox"></div>
 	                		<label>전화번호</label>
-	                 		<p><input type="text" name="hp" class="form-control" placeholder="-를 포함해서 입력하세요" required></p>
+	                 		<p><input type="text" name="hp" class="form-control" value="${memberDTO.hp }" required></p>
 	                		<label for="smsstsYn">
                                  CMS에서 발송하는 SMS 소식을 수신합니다.
                                  <input type="checkbox" id="smsstsYn" name="smsstsYn" value="Y" class="mr-2">
@@ -140,7 +155,7 @@
 	                	<div class="form-group">
                             <div class="checkbox"></div>
 	                		<label>이메일</label>
-	                 		<p><input type="email" name="email" class="form-control" placeholder="이메일을 입력하세요" required></p>
+	                 		<p><input type="email" name="email" class="form-control" value="${memberDTO.email }" required></p>
 	                		<label for="smsstsYn">
                                  CMS에서 발송하는 email을 수신합니다.
                                  <input type="checkbox" id="smsstsYn" name="smsstsYn" value="Y" class="mr-2">
@@ -151,31 +166,31 @@
 		            <div class="col-md-6">
 		            	<div class="form-group">
 	                		<label>우편번호</label>
-	                  		<input type="text" id="zipcode" name="zipcode" class="form-control">
+	                  		<input type="text" id="zipcode" name="zipcode" class="form-control" value="${memberDTO.zipcode }" required>
                         	<div align="right"><input type="button" value="검색" onclick="execDaumPostcode();" class="btn btn-primary py-3 px-4"></div>
 	                	</div>
 		            </div>
 		            <div class="col-md-8">
 		            	<div class="form-group">
 		            		<label>도로명 주소</label>
-	                  		<input type="text" name="roadAddress" id="roadAddress" class="form-control">
+	                  		<input type="text" name="roadAddress" id="roadAddress" class="form-control" value="${memberDTO.roadAddress }" required>
 	               		</div>
 		            </div>
 		            <div class="col-md-8">
 		            	<div class="form-group">
 		            		<label>지번 주소</label>
-	                  		<input type="text" name="jibunAddress" id="jibunAddress" class="form-control">
+	                  		<input type="text" name="jibunAddress" id="jibunAddress" class="form-control" value="${memberDTO.jibunAddress }" required}>
 	               		</div>
 		            </div>
 		            <div class="col-md-8">
 		            	<div class="form-group">
 		            		<label>나머지 주소</label>
-	                  		<input type="text" name="namujiAddress" id="namujiAddress" class="form-control">
+	                  		<input type="text" name="namujiAddress" id="namujiAddress" class="form-control" value="${memberDTO.namujiAddress }" required>
 	               		</div>
 		            </div>
 		            
 		            <div align="right">
-                        <button type="submit" class="btn btn-primary py-3 px-4">가입</button>
+                        <button type="submit" class="btn btn-primary py-3 px-4">회원정보 수정</button>
                     </div>
 		            
                 

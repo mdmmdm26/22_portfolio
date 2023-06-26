@@ -62,7 +62,7 @@ public class MemberController {
 			session.setMaxInactiveInterval(60 * 30);
 			
 			jsScript += "<script>";
-			jsScript += "alert('You logged in');";
+			jsScript += "alert('You are logged in');";
 			jsScript += "location.href='" + request.getContextPath() + "/';";
 			jsScript += "</script>";
 		}

@@ -36,13 +36,13 @@
 	    					<div class="col-md-6">
 	                			<div class="form-group">
 	                			<label>아이디</label>
-	                 			<input type="text" name="memberId" class="form-control" placeholder="아이디를 입력해주세요" required>
+	                 			<input type="text" name="memberId" class="form-control" required>
 	                			</div>
                 			</div>
 	              			<div class="col-md-6">
 	                			<div class="form-group">
 	                				<label>비밀번호</label>
-	                 				<input type="password" name="passwd" class="form-control" placeholder="비밀번호를 입력해주세요" required>
+	                 				<input type="password" name="passwd" class="form-control" required>
 	                			</div>
                 			</div>
                 			 <div align="right">
