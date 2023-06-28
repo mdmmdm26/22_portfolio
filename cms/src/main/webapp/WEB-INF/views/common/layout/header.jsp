@@ -19,24 +19,41 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="${contextPath }/goods/categoryList">Category</a>
-              	<a class="dropdown-item" href="shop.html">Brand</a>
-                <a class="dropdown-item" href="product-single.html">New</a>
-              </div>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            </li>
-            <li class="nav-item dropdown">
-            	<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-              	<div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}">MyPage</a>
-                <a class="dropdown-item" href="${contextPath }/myPage/myCart">MyCart</a>
-              </div>
-            </li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	         <c:choose>
+		         <c:when test="${sessionScope.role eq 'admin' }">
+		           <li class="nav-item dropdown">
+	            	<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+	              	<div class="dropdown-menu" aria-labelledby="dropdown04">
+	                	<a class="dropdown-item" href="${contextPath }/admin/member/adminMemberList">Member Management</a>
+	                	<a class="dropdown-item" href="${contextPath }/admin/goods/adminGoodsList">Goods Management</a>
+	                	<a class="dropdown-item" href="${contextPath }/admin/order/adminOrderList">Order Management</a>
+	                	<a class="dropdown-item" href="${contextPath }/admin/contact/adminContactList">Contact Management</a>
+	              	</div>
+	           		</li>
+		          </c:when>
+		          <c:otherwise>
+			          <li class="nav-item dropdown">
+		              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+		              <div class="dropdown-menu" aria-labelledby="dropdown04">
+		              	<a class="dropdown-item" href="${contextPath }/goods/categoryList">Category</a>
+		              	<a class="dropdown-item" href="shop.html">Brand</a>
+		                <a class="dropdown-item" href="product-single.html">New</a>
+		              </div>
+			          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+			          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+		            
+		            <li class="nav-item dropdown">
+		            	<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+		              	<div class="dropdown-menu" aria-labelledby="dropdown04">
+		                <a class="dropdown-item" href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}">MyPage</a>
+		                <a class="dropdown-item" href="${contextPath }/myPage/myCart">MyCart</a>
+		              </div>
+		            </li>
+			        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+		          
+		          </c:otherwise>
+	         </c:choose>
+	          
 	          <c:choose>
 	          	<c:when test="${sessionScope.memberId eq null }">
 		          	<li class="nav-item"><a href="${contextPath }/member/login">login</a></li>
