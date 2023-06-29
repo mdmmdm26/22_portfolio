@@ -10,7 +10,7 @@ public interface MyPageDAO {
 	public MemberDTO selectOneMyInfo(String memberId) throws Exception;
 	public void updateInfo(MemberDTO memberDTO) throws Exception;
 	public void deleteMember(String memberId) throws Exception;
-	public List<Map<String, Object>> selectListMyCart(String memberId) throws Exception;
-	public int selectMyCartCnt(String memberId) throws Exception;
+//	public List<Map<String, Object>> selectListMyCart(String memberId) throws Exception;
+//	public int selectMyCartCnt(String memberId) throws Exception;
 	
 }

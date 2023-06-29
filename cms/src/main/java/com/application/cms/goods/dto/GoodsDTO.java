@@ -9,8 +9,8 @@ public class GoodsDTO {
 	private int price;
 	private String discountRate;
 	private int Stock;
-	private String sort;
-	private String part;
+	private String category;
+	private String brand;
 	private String point;
 	private String content;
 	private String profile;
@@ -45,19 +45,19 @@ public class GoodsDTO {
 		return Stock;
 	}
 	public void setStock(int stock) {
-		Stock = stock;
+		this.Stock = stock;
 	}
-	public String getSort() {
-		return sort;
+	public String getCategory() {
+		return category;
 	}
-	public void setSort(String sort) {
-		this.sort = sort;
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	public String getPart() {
-		return part;
+	public String getBrand() {
+		return brand;
 	}
-	public void setPart(String part) {
-		this.part = part;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 	public String getPoint() {
 		return point;

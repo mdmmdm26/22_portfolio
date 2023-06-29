@@ -8,4 +8,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/goods/adminGoodsAdd.jsp"/>
 	</definition>
 	
+	<definition name="/admin/goods/adminGoodsList" extends="default">
+		<put-attribute name="title" value="상품리스트"/>
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/adminGoodsList.jsp"/>
+	</definition>
+	
 </tiles-definitions>

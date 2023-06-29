@@ -48,8 +48,8 @@ public class AdminGoodsController {
 		goodsDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
 		goodsDTO.setDiscountRate(multi.getParameter("discountRate"));
 		goodsDTO.setStock(Integer.parseInt(multi.getParameter("stock")));
-		goodsDTO.setSort(multi.getParameter("sort"));
-		goodsDTO.setPart(multi.getParameter("part"));
+		goodsDTO.setCategory(multi.getParameter("category"));
+		goodsDTO.setBrand(multi.getParameter("brand"));
 		goodsDTO.setPoint(multi.getParameter("point"));
 		goodsDTO.setContent(multi.getParameter("content"));
 		goodsDTO.setDeliveryPrice(Integer.parseInt(multi.getParameter("deliveryPrice")));
@@ -77,6 +77,15 @@ public class AdminGoodsController {
 			
 		return jsScript;
 		
+	}
+	
+	@GetMapping("/adminGoodsList")
+	public ModelAndView adminGoodsList() throws Exception {
+		
+		ModelAndView mv = new ModelAndView("/admin/goods/adminGoodsList");
+		
+		mv.addObject("goodsList", adminGoodsService.getGoodsList());
+		return mv;
 	}
 
 }
