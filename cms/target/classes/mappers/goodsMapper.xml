@@ -12,11 +12,10 @@
 			<if test='part.equals("all")'>
 				PART IN ('coffee', 'ade', 'tea', 'soda', 'milk', 'whipping', 'bakery', 'machine')
 			</if>
-			<if test='!part.equals("all")'>
+			<if test='!part.equals("all") &amp;'>
 				PART = #{part}
 			</if>
 		</where>
-		
 	</select>
 	
 </mapper>
