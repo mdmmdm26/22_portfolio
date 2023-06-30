@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />	
 
 <!DOCTYPE html>
@@ -38,8 +39,6 @@
 	    				<table class="table">
 						    <thead class="thead-primary">
 						      <tr class="text-center">
-						        <th>&nbsp;</th>
-						        <th>&nbsp;</th>
 						        <th>Product</th>
 						        <th>Price</th>
 						        <th>Quantity</th>
@@ -47,6 +46,30 @@
 						      </tr>
 						    </thead>
 						    <tbody>
+						    	<c:choose>
+									<c:when test="${empty goodsList }">
+										<tr>
+											<td colspan="4" align="center">
+												<h6>조회된 상품이 없습니다.</h6>
+											</td>
+										</tr>
+									</c:when>	
+									<c:otherwise>
+										<c:forEach var="goodsDTO" items="${goodsList }" varStatus="i">
+											<tr>
+												<td class="text-center">
+													<h6>${i.count }</h6>
+												</td>
+												<td class="product-name">
+													<div>
+														<h6><a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDTO.goodsCd }">${goodsDTO.goodsNm }</a></h6>
+														<p><fmt:formatDate value="${goodsDTO.price }"/>원</p>
+													</div>
+												</td>
+											</tr>
+										</c:forEach>
+									</c:otherwise>					    	
+						    	</c:choose>
 						      <tr class="text-center">
 						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
 						        
