@@ -43,7 +43,7 @@
     <!-- Body Section End -->
 
 	<!-- Body Section Begin -->
-    <tiles:insertAttribute name="body"/>
+    <tiles:insertAttribute name="body" ignore='true'/>
     <!-- Body Section End -->
 
 	<!-- Footer Section Begin -->

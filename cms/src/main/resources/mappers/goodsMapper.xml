@@ -9,11 +9,11 @@
 		FROM
 				GOODS
 		<where>
-			<if test='part.equals("all")'>
-				PART IN ('coffee', 'ade', 'tea', 'soda', 'milk', 'whipping', 'bakery', 'machine')
+			<if test='category.equals("all")'>
+				CATEGORY IN ('coffee', 'ade', 'tea', 'soda', 'milk', 'whipping', 'bakery', 'machine')
 			</if>
-			<if test='!part.equals("all") &amp;'>
-				PART = #{part}
+			<if test='!category.equals("all")'>
+				CATEGORY = #{category}
 			</if>
 		</where>
 	</select>

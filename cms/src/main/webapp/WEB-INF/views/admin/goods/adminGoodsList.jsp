@@ -31,18 +31,14 @@
 			<div class="container">
 				<div class="row">
     			<div class="col-md-12 ftco-animate">
-					<div align="right">
-	                  	<button class="btn btn-primary py-3 px-4" onclick="location.href='${contextPath}/myPage/removeMember?memberId=${memberDTO.memberId }'" style="color:black;'">회원탈퇴</button>
-	              	</div>
-	              	<br>
     				<div class="cart-list">
 	    				<table class="table">
 						    <thead class="thead-primary">
-						      <tr class="text-center">
-						        <th>Product</th>
-						        <th>Price</th>
-						        <th>Quantity</th>
-						        <th>Total</th>
+						      <tr>
+						        <th width="5%">코드</th>
+						        <th width="25%">상품 정보</th>
+						        <th width="20%">등록날짜</th>
+						        <th width="20%">수정/삭제</th>
 						      </tr>
 						    </thead>
 						    <tbody>
@@ -55,72 +51,37 @@
 										</tr>
 									</c:when>	
 									<c:otherwise>
-										<c:forEach var="goodsDTO" items="${goodsList }" varStatus="i">
+										<c:forEach var="list" items="${goodsList }">
 											<tr>
-												<td class="text-center">
-													<h6>${i.count }</h6>
+												<td class="cart__close">
+													<h6>${list.goodsCd }</h6>
 												</td>
 												<td class="product-name">
 													<div>
-														<h6><a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDTO.goodsCd }">${goodsDTO.goodsNm }</a></h6>
-														<p><fmt:formatDate value="${goodsDTO.price }"/>원</p>
+														<h6><a href="${contextPath }/goods/goodsDetail?goodsCd=${list.goodsCd }">${list.goodsNm }</a></h6>
+														<p><fmt:formatNumber value="${list.price }"/>원</p>
 													</div>
+												</td>
+												<td class="price">
+													<fmt:formatDate value="${list.enrollDt }" pattern="yyyy-MM-dd"/>
+												</td>
+												<td class="quatity">
+													<a href="${contextPath }/admin/goods/adminGoodsModify?goodsCd=${list.goodsCd}"><span class="icon_pencil-edit"></span></a>
+			                                		<a href="javascript:adminGoodsRemove(${list.goodsCd });">11</a>
 												</td>
 											</tr>
 										</c:forEach>
 									</c:otherwise>					    	
 						    	</c:choose>
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/menu-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Creamy Latte Coffee</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$4.90</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$4.90</td>
-						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/dish-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Grilled Ribs Beef</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
-						      </tr><!-- END TR-->
+						      
 						    </tbody>
 						  </table>
+						  </div>
 						  <div align="right">
 	                  		<button class="btn btn-primary py-3 px-4" onclick="location.href='${contextPath}/admin/goods/adminGoodsAdd'">상품추가</button>
-	              		</div>
-					 </div>
+	              		 </div>
     			</div>
     		</div>
-  
-    		
     	</div>
     </section>
 

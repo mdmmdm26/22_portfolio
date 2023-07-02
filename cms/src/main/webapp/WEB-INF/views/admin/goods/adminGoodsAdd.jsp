@@ -109,12 +109,6 @@
 	              		
                		</div>
                 
-	              	<div class="col-md-8">
-	                	<div class="form-group">
-	                		<label>포인트</label>
-	                 		<input type="text" name="memberNm" class="form-control" placeholder="이름을 입력하세요" required>
-	                	</div>
-               		 </div>
                		 
 		            <div align="right">
                         <button type="submit" class="btn btn-primary py-3 px-4">등록</button>

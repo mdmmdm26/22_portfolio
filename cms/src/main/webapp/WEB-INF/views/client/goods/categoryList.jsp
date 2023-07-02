@@ -34,76 +34,46 @@
 		    		<div class="row">
 		          <div class="col-md-12 nav-link-wrap mb-5">
 		            <div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-		            	<a class="nav-link active" id="v-pills-0-tab" data-toggle="pill" href="${contextPath }/goods/categoryList?part=coffee" role="tab" aria-controls="v-pills-0" aria-selected="true">Coffee</a>
+		            	  <a class="nav-link active" data-toggle="pill" href="${contextPath }/goods/categoryList?category=coffee" role="tab"  aria-selected="true">Coffee</a>
 
-		              <a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="${contextPath }/goods/categoryList?part=ade&part=smoothie" role="tab" aria-controls="v-pills-1" aria-selected="false">Ade / Smoothie</a>
-
-		              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="${contextPath }/goods/categoryList?part=tea&part=soda" role="tab" aria-controls="v-pills-2" aria-selected="false">Tea / Soda</a>
-
-		              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="${contextPath }/goods/categoryList?part=milk&part=whipping" role="tab" aria-controls="v-pills-3" aria-selected="false">Milk / Whipping</a>
-		              
-		              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="${contextPath }/goods/categoryList?part=bakery" role="tab" aria-controls="v-pills-3" aria-selected="false">Bakery</a>
-		              
-		              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="${contextPath }/goods/categoryList?part=machine" role="tab" aria-controls="v-pills-3" aria-selected="false">Machine</a>
+			              <a class="nav-link" data-toggle="pill" href="${contextPath }/goods/categoryList?category=ade,smoothie" role="tab"  aria-selected="false">Ade / Smoothie</a>
+	
+			              <a class="nav-link" data-toggle="pill" href="${contextPath }/goods/categoryList?category=tea,soda" role="tab"  aria-selected="false">Tea / Soda</a>
+	
+			              <a class="nav-link" data-toggle="pill" href="${contextPath }/goods/categoryList?category=milk,whipping" role="tab" aria-selected="false">Milk / Whipping</a>
+			              
+			              <a class="nav-link" data-toggle="pill" href="${contextPath }/goods/categoryList?category=bakery" role="tab"  aria-selected="false">Bakery</a>
+			              
+			              <a class="nav-link" data-toggle="pill" href="${contextPath }/goods/categoryList?category=machine" role="tab" aria-selected="false">Machine</a>
 		            </div>
 		          </div>
 		          <div class="col-md-12 d-flex align-items-center">
 		            
-		            <div class="tab-content ftco-animate" id="v-pills-tabContent">
+		            <div class="tab-content ftco-animate" >
 
-		              <div class="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab">
+		              <div class="tab-pane fade show active"  role="tabpanel">
 		              	<div class="row">
 		              	<c:choose>
-		              		<c:when test="${empty categoryList }">
+		              		<c:when test="${empty categoryGoodsList }">
 		              			<div class="menu-entry">
 		              				<h3>등록된 상품이 없습니다.</h3>
 		              			</div>
 		              		</c:when>
 		              		<c:otherwise>
-			              		<div class="col-md-3">
-					        		<div class="menu-entry">
-				    					<a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
-				    					<div class="text text-center pt-4">
-				    						<h3><a href="product-single.html" >Coffee Capuccino</a></h3>
-				    						<p>A small river named Duden flows by their place and supplies</p>
-				    						<p class="price"><span>$5.90</span></p>
-				    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-				    					</div>
-					    			</div>
-							   	</div>
-							    <div class="col-md-3">
-							        <div class="menu-entry">
-				    					<a href="#" class="img" style="background-image: url(images/menu-2.jpg);"></a>
-				    					<div class="text text-center pt-4">
-				    						<h3><a href="product-single.html">Coffee Capuccino</a></h3>
-				    						<p>A small river named Duden flows by their place and supplies</p>
-				    						<p class="price"><span>$5.90</span></p>
-				    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-				    					</div>
-				    				</div>
-							     </div>
-							     <div class="col-md-3">
-						        	<div class="menu-entry">
-						    			<a href="#" class="img" style="background-image: url(images/menu-3.jpg);"></a>
+		              			<c:forEach var="list" items="${categoryGoodsList }">
+		              			
+				              		<div class="col-md-3">
+						        		<div class="menu-entry">
+					    					<a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
 					    					<div class="text text-center pt-4">
-					    						<h3><a href="product-single.html">Coffee Capuccino</a></h3>
+					    						<h3><a href="product-single.html" >${list.goodsNm }</a></h3>
 					    						<p>A small river named Duden flows by their place and supplies</p>
-					    						<p class="price"><span>$5.90</span></p>
+					    						<p class="price"><span>${list.price }</span></p>
 					    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
 					    					</div>
 						    			</div>
-							        </div>
-							        <div class="col-md-3">
-							        	<div class="menu-entry">
-					    					<a href="#" class="img" style="background-image: url(images/menu-4.jpg);"></a>
-					    					<div class="text text-center pt-4">
-					    						<h3><a href="product-single.html">Coffee Capuccino</a></h3>
-					    						<p>A small river named Duden flows by their place and supplies</p>
-					    						<p class="price"><span>$5.90</span></p>
-					    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-					    					</div>
-					    				</div>
-							        </div>
+								   	</div>
+		              			</c:forEach>
 		              		</c:otherwise>
 		              	</c:choose>
 		              	</div>

@@ -35,7 +35,7 @@
 			          <li class="nav-item dropdown">
 		              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
 		              <div class="dropdown-menu" aria-labelledby="dropdown04">
-		              	<a class="dropdown-item" href="${contextPath }/goods/categoryList">Category</a>
+		              	<a class="dropdown-item" href="${contextPath }/goods/categoryList?category=all">Category</a>
 		              	<a class="dropdown-item" href="shop.html">Brand</a>
 		                <a class="dropdown-item" href="product-single.html">New</a>
 		              </div>
