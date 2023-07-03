@@ -5,73 +5,45 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Coffee - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aroma Shop - Home</title>
+	<link rel="icon" href="${contextPath }/resources/bootstrap/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/vendors/owl-carousel/owl.carousel.min.css">
 
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/animate.css">
-    
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/aos.css">
-
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/flaticon.css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/icomoon.css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style.css">
-    
-    <script src="${contextPath }/resources/bootstrap/js/jquery.min.js"></script>
-    
-  </head>
-  <body>
+  <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style1.css">
   
-  	<!-- Header Section Begin -->
-  	<tiles:insertAttribute name="header"/>
-    <!-- Body Section End -->
-
-	<!-- Body Section Begin -->
-    <tiles:insertAttribute name="body" ignore='true'/>
-    <!-- Body Section End -->
-
-	<!-- Footer Section Begin -->
-    <tiles:insertAttribute name="footer"/>
-    <!-- Body Section End -->
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="${contextPath }/resources/bootstrap/js/jquery.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/popper.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/bootstrap.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery.easing.1.3.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery.waypoints.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery.stellar.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/owl.carousel.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery.magnific-popup.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/aos.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery.animateNumber.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/bootstrap-datepicker.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/jquery.timepicker.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/js/scrollax.min.js"></script>
-  <script src="${contextPath }/resources/bootstrap/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="${contextPath }/resources/bootstrap/js/google-map.js"></script>
   <script src="${contextPath }/resources/bootstrap/js/main.js"></script>
-    
-  </body>
+  
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<tiles:insertAttribute name="header"/>
+	<!--================ End Header Menu Area =================-->
+
+  <tiles:insertAttribute name="body" ignore='true'/>
+
+
+  <!--================ Start footer Area  =================-->	
+	<tiles:insertAttribute name="footer"/>
+	<!--================ End footer Area  =================-->
+
+
+
+  <script src="${contextPath }/resources/bootstrap/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/skrollr.min.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/mail-script.js"></script>
+  
+</body>
 </html>

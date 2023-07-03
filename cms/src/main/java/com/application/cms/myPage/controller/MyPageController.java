@@ -68,21 +68,21 @@ public class MyPageController {
 		
 	}
 	
-//	@GetMapping("/myCart")
-//	public ModelAndView myCart(HttpServletRequest request) throws Exception {
-//		
-//		HttpSession session = request.getSession();
-//		
-//		ModelAndView mv = new ModelAndView("/myPage/myCart");
-//		
-//		String memberId = (String)session.getAttribute("memberId");
-//		
-//		mv.addObject("myCartList", myPageService.getMyCartList(memberId));
-//		mv.addObject("cartListCnt", myPageService.cartListCnt(memberId));
-//		
-//		return mv;
+	@GetMapping("/myCart")
+	public ModelAndView myCart(HttpServletRequest request) throws Exception {
+	
+		HttpSession session = request.getSession();
+	
+		ModelAndView mv = new ModelAndView("/myPage/myCart");
+	
+		String memberId = (String)session.getAttribute("memberId");
+	
+		mv.addObject("myCartList", myPageService.getMyCartList(memberId));
+		mv.addObject("cartListCnt", myPageService.cartListCnt(memberId));
+	
+		return mv;
 		
-//	}
+	}
 	
 
 }

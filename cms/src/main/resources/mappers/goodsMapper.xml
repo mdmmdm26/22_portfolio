@@ -3,19 +3,28 @@
 
 <mapper namespace="goodsMapper">
 	
-	<select id="selectListCategoryGoods" parameterType="GoodsDTO" resultType="GoodsDTO">
+	<select id="selectListGoods" parameterType="GoodsDTO" resultType="GoodsDTO">
 		SELECT
 				*
 		FROM
 				GOODS
 		<where>
 			<if test='category.equals("all")'>
-				CATEGORY IN ('coffee', 'ade', 'tea', 'soda', 'milk', 'whipping', 'bakery', 'machine')
+				CATEGORY IN ('coffee', 'ade', 'smoothie', 'tea', 'soda', 'milk', 'whipping', 'bakery', 'machine')
 			</if>
 			<if test='!category.equals("all")'>
 				CATEGORY = #{category}
 			</if>
 		</where>
+	</select>
+	
+	<select id="selectOneGoods" parameterType="int" resultType="GoodsDTO">
+		SELECT
+				*
+		FROM
+				GOODS
+		WHERE
+				GOODS_CD = #{goodsCd}
 	</select>
 	
 </mapper>

@@ -15,173 +15,173 @@
 			location.href = "${contextPath}/member/login";
 		</script>
 	</c:if>
-	
 
-	<section class="home-slider owl-carousel">
-
-      <div class="slider-item" style="background-image: url(${contextPath }/resources/bootstrap/images/bg_3.png);" data-stellar-background-ratio="0.5">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center">
-
-            <div class="col-md-7 col-sm-12 text-center ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">Cart</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="${contextPath }/">Home</a></span> <span>Cart</span></p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-		
-		<section class="ftco-section ftco-cart">
-			<div class="container">
-				<div class="row">
-    			<div class="col-md-12 ftco-animate">
-    				<div class="cart-list">
-	    				<table class="table">
-						    <thead class="thead-primary">
-						      <tr class="text-center">
-						        <th>&nbsp;</th>
-						        <th>&nbsp;</th>
-						        <th>Product</th>
-						        <th>Price</th>
-						        <th>Quantity</th>
-						        <th>Total</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/menu-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Creamy Latte Coffee</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$4.90</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$4.90</td>
-						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/dish-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Grilled Ribs Beef</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
-						      </tr><!-- END TR-->
-						    </tbody>
-						  </table>
-					  </div>
-    			</div>
-    		</div>
-    		<div class="row justify-content-end">
-    			<div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
-    				<div class="cart-total mb-3">
-    					<h3>Cart Totals</h3>
-    					<p class="d-flex">
-    						<span>Subtotal</span>
-    						<span>$20.60</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Delivery</span>
-    						<span>$0.00</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Discount</span>
-    						<span>$3.00</span>
-    					</p>
-    					<hr>
-    					<p class="d-flex total-price">
-    						<span>Total</span>
-    						<span>$17.60</span>
-    					</p>
-    				</div>
-    				<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
-    			</div>
-    		</div>
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Shopping Cart</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="${contextPath }/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+            </ol>
+          </nav>
+				</div>
 			</div>
-		</section>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
+  
+  
 
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-          	<span class="subheading">Discover</span>
-            <h2 class="mb-4">Related products</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <!--================Cart Area =================-->
+  <section class="cart_area">
+      <div class="container">
+          <div class="cart_inner">
+              <div class="table-responsive">
+              <h6><input type="checkbox" id="changeAllChoice" onchange="selectAllCart()"> &nbsp;전체선택</h6>
+                  <br>
+                  <table class="table">
+                      <thead>
+                          <tr>
+                          	  <th></th>
+                              <th scope="col">상품</th>
+                              <th scope="col">가격</th>
+                              <th scope="col">수량</th>
+                              <th scope="col">금액</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      	<c:choose>
+                      		<c:when test="${empty myCartList }">
+                      			<tr align="center">
+                      				<td colspan="5"><h4>조회된 상품이 없습니다.</h4></td>
+                      			</tr>
+                      		</c:when>
+                      		<c:otherwise>
+                      			<c:forEach var="cartList" items="${myCartList }">
+                      				<tr>
+                      				  <td><input type="checkbox" name="cartCd" value="${cartList.cartCd }" checked></td>
+		                              <td>
+		                                  <div class="media">
+		                                      <div class="d-flex">
+		                                          <img src="${contextPath }/thumbnails?profile=${cartList.profile}" alt="">
+		                                      </div>
+		                                      <div class="media-body">
+		                                          <h6>
+		                                          	<a href="${contxetPath }/goods/goodsDetail?goodsCd=${cartList.goodsCd}">${cartList.goodsNm }</a>
+		                                          	<input type="hidden" id="goodsCd${cartList.cartCd }" value="${cartList.goodsCd }"/>
+		                                          </h6>
+		                                      </div>
+		                                  </div>
+		                              </td>
+		                              <td>
+		                                  <h5>${cartList.price }</h5>
+		                              </td>
+		                              <td>
+		                                  <div class="product_count">
+		                                      <input type="text" name="cartGoodsQTy" id="cartGoodsQty" maxlength="12" value="1" title="Quantity:"
+		                                          class="input-text qty">
+		                                  </div>
+		                              </td>
+		                              <td>
+		                                  <h5>${cartList.price }*${cartList.cartGoodsQty }</h5>
+		                              </td>
+                      				</tr>
+                      			</c:forEach>
+                      		</c:otherwise>
+                      	</c:choose>
+                          
+                          <tr class="bottom_button">
+                              <td>
+                                  <a class="button" href="#">Update Cart</a>
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <div class="cupon_text d-flex align-items-center">
+                                      <input type="text" placeholder="Coupon Code">
+                                      <a class="primary-btn" href="#">Apply</a>
+                                      <a class="button" href="#">Have a Coupon?</a>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <h5>Subtotal</h5>
+                              </td>
+                              <td>
+                                  <h5>$2160.00</h5>
+                              </td>
+                          </tr>
+                          <tr class="shipping_area">
+                              <td class="d-none d-md-block">
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <h5>Shipping</h5>
+                              </td>
+                              <td>
+                                  <div class="shipping_box">
+                                      <ul class="list">
+                                          <li><a href="#">Flat Rate: $5.00</a></li>
+                                          <li><a href="#">Free Shipping</a></li>
+                                          <li><a href="#">Flat Rate: $10.00</a></li>
+                                          <li class="active"><a href="#">Local Delivery: $2.00</a></li>
+                                      </ul>
+                                      <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
+                                      <select class="shipping_select">
+                                          <option value="1">Bangladesh</option>
+                                          <option value="2">India</option>
+                                          <option value="4">Pakistan</option>
+                                      </select>
+                                      <select class="shipping_select">
+                                          <option value="1">Select a State</option>
+                                          <option value="2">Select a State</option>
+                                          <option value="4">Select a State</option>
+                                      </select>
+                                      <input type="text" placeholder="Postcode/Zipcode">
+                                      <a class="gray_btn" href="#">Update Details</a>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="out_button_area">
+                              <td class="d-none-l">
+
+                              </td>
+                              <td class="">
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <div class="checkout_btn_inner d-flex align-items-center">
+                                      <a class="gray_btn" href="#">Continue Shopping</a>
+                                      <a class="primary-btn ml-2" href="#">Proceed to checkout</a>
+                                  </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
           </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-2.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-3.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-4.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
-
+      </div>
+  	</section>
+	
 </body>
 </html>

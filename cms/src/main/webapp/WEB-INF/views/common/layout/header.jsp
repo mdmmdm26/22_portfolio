@@ -10,69 +10,85 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Coffee<small>Blend</small></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	         <c:choose>
-		         <c:when test="${sessionScope.role eq 'admin' }">
-		           <li class="nav-item dropdown">
-	            	<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-	              	<div class="dropdown-menu" aria-labelledby="dropdown04">
-	                	<a class="dropdown-item" href="${contextPath }/admin/member/adminMemberList">Member Management</a>
-	                	<a class="dropdown-item" href="${contextPath }/admin/goods/adminGoodsList">Goods Management</a>
-	                	<a class="dropdown-item" href="${contextPath }/admin/order/adminOrderList">Order Management</a>
-	                	<a class="dropdown-item" href="${contextPath }/admin/contact/adminContactList">Contact Management</a>
-	              	</div>
-	           		</li>
-		          </c:when>
-		          <c:otherwise>
-			          <li class="nav-item dropdown">
-		              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-		              <div class="dropdown-menu" aria-labelledby="dropdown04">
-		              	<a class="dropdown-item" href="${contextPath }/goods/categoryList?category=all">Category</a>
-		              	<a class="dropdown-item" href="shop.html">Brand</a>
-		                <a class="dropdown-item" href="product-single.html">New</a>
-		              </div>
-			          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-			          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-		            
-		            <li class="nav-item dropdown">
-		            	<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-		              	<div class="dropdown-menu" aria-labelledby="dropdown04">
-		                <a class="dropdown-item" href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}">MyPage</a>
-		                <a class="dropdown-item" href="${contextPath }/myPage/myCart">MyCart</a>
-		              </div>
-		            </li>
-			        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-		          
-		          </c:otherwise>
-	         </c:choose>
-	          
-	          <c:choose>
-	          	<c:when test="${sessionScope.memberId eq null }">
-		          	<li class="nav-item"><a href="${contextPath }/member/login">login</a></li>
-		          	<li>/</li>
-		          	<li class="nav-item"><a href="${contextPath }/member/register">register</a></li>
-	          	</c:when>
-	          	<c:otherwise>
-	          	  	<li class="nav-item"><a href="${contextPath }/member/logout">logout</a></li>
-	          	</c:otherwise>
-	          </c:choose>
-	          <c:choose>
-	          	<c:when test="${sessionScope.role == 'client' }">
-		         	 <li class="nav-item cart"><a href="${contextPath }/myPage/myCart" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>${sessionScope.myCartCnt }</small></span></a></li>
-	          	</c:when>
-	          </c:choose>
-	        </ul>
-	      </div>
-		  </div>
-	  </nav>
+	<header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" href="${contextPath }/"><img src="${contextPath}/resources/bootstrap/img/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+              <li class="nav-item active"><a class="nav-link" href="${contextPath }/">Home</a></li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Shop</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="${contextPath }/goods/goodsList?category=all">Shop Category</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                </ul>
+			  </li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Blog</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+                </ul>
+			  </li>
+			  <c:choose>
+			  	<c:when test="${sessionScope.role eq 'admin' }">
+			  		<li class="nav-item submenu dropdown">
+	                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+	                  aria-expanded="false">Management</a>
+	                <ul class="dropdown-menu">
+	                  <li class="nav-item"><a class="nav-link" href="${contextPath }/admin/goods/adminGoodsList">Goods Management</a></li>
+	                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
+	                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
+	                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+	                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+	                </ul>
+				  </li>
+			  	</c:when>
+			  	<c:otherwise>
+					  <li class="nav-item submenu dropdown">
+		                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+		                  aria-expanded="false">My Pages</a>
+		                <ul class="dropdown-menu">
+		                  <li class="nav-item"><a class="nav-link" href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}">My Info</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="${contextPath }/myPage/myCart">My Cart</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
+		                </ul>
+		              </li>
+			  	</c:otherwise>
+			  </c:choose>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <ul class="nav-shop">
+              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <c:choose>
+              	<c:when test="${sessionScope.memberId eq null}">
+	              <li class="nav-item"><a class="button button-header" href=" ${contextPath }/member/login">Login / Register</a></li>
+              	</c:when>
+              	<c:otherwise>
+              		<li class="nav-item"><a class="button button-header" href=" ${contextPath }/member/logout">logout</a></li>
+              	</c:otherwise>
+              </c:choose>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
 </body>
 </html>

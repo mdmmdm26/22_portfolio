@@ -34,15 +34,15 @@ public class MyPageServiceImpl implements MyPageService {
 		
 	}
 
-//	@Override
-//	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception {
-//		return myPageDAO.selectListMyCart(memberId);
-//	}
-//
-//	@Override
-//	public int cartListCnt(String memberId) throws Exception {
-//		return myPageDAO.selectMyCartCnt(memberId);
-//	}
+	@Override
+	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception {
+		return myPageDAO.selectListMyCart(memberId);
+	}
+
+	@Override
+	public int cartListCnt(String memberId) throws Exception {
+		return myPageDAO.selectMyCartCnt(memberId);
+	}
 	
 	
 

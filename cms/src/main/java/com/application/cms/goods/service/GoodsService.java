@@ -6,6 +6,7 @@ import com.application.cms.goods.dto.GoodsDTO;
 
 public interface GoodsService {
 	
-	public List<GoodsDTO> getCategoryGoodsList(GoodsDTO goodsDTO) throws Exception;
-
+	public List<GoodsDTO> getGoodsList(GoodsDTO goodsDTO) throws Exception;
+	public GoodsDTO getGoodsDetail(int goodsCd) throws Exception;
+	
 }

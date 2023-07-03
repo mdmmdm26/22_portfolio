@@ -3,9 +3,14 @@
   
 <tiles-definitions>
 
-	<definition name="/goods/categoryList" extends="default">
-		<put-attribute name="title" value="카테고리별 상품리스트"/>
-		<put-attribute name="body" value="/WEB-INF/views/client/goods/categoryList.jsp"/>
+	<definition name="/goods/goodsList" extends="default">
+		<put-attribute name="title" value="상품리스트"/>
+		<put-attribute name="body" value="/WEB-INF/views/client/goods/goodsList.jsp"/>
+	</definition>
+	
+	<definition name="/goods/goodsDetail" extends="default">
+		<put-attribute name="title" value="상품 상세"/>
+		<put-attribute name="body" value="/WEB-INF/views/client/goods/goodsDetail.jsp"/>
 	</definition>
 
 </tiles-definitions>  

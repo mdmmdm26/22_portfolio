@@ -10,7 +10,7 @@ public interface MyPageService {
 	public MemberDTO getMyInfo(String memberId) throws Exception;
 	public void modifyInfo(MemberDTO memberDTO) throws Exception;
 	public void removeInfo(String memberId) throws Exception;
-//	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception;
-//	public int cartListCnt(String memberId) throws Exception;
+	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception;
+	public int cartListCnt(String memberId) throws Exception;
 
 }

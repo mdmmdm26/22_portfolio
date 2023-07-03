@@ -30,14 +30,14 @@ public class MyPageDAOImpl implements MyPageDAO {
 		sqlSession.delete("myPageMapper.deleteMember", memberId);
 	}
 
-//	@Override
-//	public List<Map<String, Object>> selectListMyCart(String memberId) throws Exception {
-//		return sqlSession.selectList("myPageMapper.selectListMyCart", memberId);
-//	}
-//
-//	@Override
-//	public int selectMyCartCnt(String memberId) throws Exception {
-//		return sqlSession.selectOne("myPageMapper.selectMyCartCnt", memberId);
-//	}
+	@Override
+	public List<Map<String, Object>> selectListMyCart(String memberId) throws Exception {
+		return sqlSession.selectList("myPageMapper.selectListMyCart", memberId);
+	}
+
+	@Override
+	public int selectMyCartCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("myPageMapper.selectMyCartCnt", memberId);
+	}
 
 }
