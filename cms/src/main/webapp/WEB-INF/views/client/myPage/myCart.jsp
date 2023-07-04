@@ -87,7 +87,7 @@
                               <th scope="col">상품</th>
                               <th scope="col" width="20%">가격</th>
                               <th scope="col" width="20%">수량</th>
-                              <th scope="col" width="20%">금액</th>
+                              <th scope="col" width="20%">날짜</th>
                           </tr>
                       </thead>
                       <tbody>
