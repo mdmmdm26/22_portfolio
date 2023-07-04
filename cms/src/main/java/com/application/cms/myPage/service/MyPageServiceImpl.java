@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.application.cms.member.dto.MemberDTO;
 import com.application.cms.myPage.dao.MyPageDAO;
+import com.application.cms.myPage.dto.CartDTO;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -42,6 +43,22 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public int cartListCnt(String memberId) throws Exception {
 		return myPageDAO.selectMyCartCnt(memberId);
+	}
+
+	@Override
+	public boolean checkDuplicatedCart(CartDTO cartDTO) throws Exception {
+		if (myPageDAO.selectOneDuplicatedCart(cartDTO) == null) return false;
+		else	return true;
+	}
+
+	@Override
+	public void addCart(CartDTO cartDTO) throws Exception {
+		myPageDAO.insertCart(cartDTO);
+	}
+
+	@Override
+	public void modifyCartGoodsQty(Map<String, Object> updateMap) throws Exception {
+		myPageDAO.updateCartGoodsQty(updateMap); 
 	}
 	
 	

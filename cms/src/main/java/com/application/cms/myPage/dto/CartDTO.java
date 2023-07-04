@@ -2,7 +2,7 @@ package com.application.cms.myPage.dto;
 
 import java.util.Date;
 
-public class MyPageDTO {
+public class CartDTO {
 
 	private int cartCd;
 	private String memberId;

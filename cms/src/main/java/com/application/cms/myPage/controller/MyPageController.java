@@ -1,9 +1,13 @@
 package com.application.cms.myPage.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.application.cms.member.dto.MemberDTO;
 import com.application.cms.member.service.MemberService;
+import com.application.cms.myPage.dto.CartDTO;
 import com.application.cms.myPage.service.MyPageService;
 
 @Controller
@@ -82,6 +87,35 @@ public class MyPageController {
 	
 		return mv;
 		
+	}
+	
+	@GetMapping("/addCart")
+	@ResponseBody
+	public String addCart(@RequestParam("goodsCd") int goodsCd, @RequestParam("cartGoodsQty") int cartGoodsQty, HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		String memberId = (String)session.getAttribute("memberId");
+		
+		CartDTO cartDTO = new CartDTO();
+		cartDTO.setMemberId(memberId);
+		cartDTO.setGoodsCd(goodsCd);
+		cartDTO.setCartGoodsQty(cartGoodsQty);
+		
+		String result = "duple";
+		if (!myPageService.checkDuplicatedCart(cartDTO)) {
+			myPageService.addCart(cartDTO);
+			session.setAttribute("myCartCnt", memberService.getMyCartCnt(memberId));
+			result = "notDuple";
+		}
+		
+		return result;
+		
+	}
+	
+	@GetMapping("/modifyCartGoodsQty")
+	public ResponseEntity<Object> modifyGoodsQty(@RequestParam Map<String, Object> updateMap) throws Exception {
+		myPageService.modifyCartGoodsQty(updateMap);
+		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	
 

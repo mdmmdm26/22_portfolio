@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />	
 
 <!DOCTYPE html>
@@ -7,6 +8,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+
+	$().ready(function(){
+		
+		getTotalPrice();
+		
+		$("[name='cartCd']").change(function(){
+			getTotlaPrice();
+		});
+		
+	});
+	
+	function getTotalPrice() {
+		var totalPrice = 0;
+		$("[name='cartCd']:checked").each(function(){
+			var tempCartCd = $(this).val();
+			totalPrice += Number($("#price" + tempCartCd).val()) * Number($("#cartGoodsQty" + tempCartCd).val());
+		});
+		totalPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원";
+		$("#totalPrice").html(totalPrice);
+	}
+
+	function modifyCartGoodsQty(cartCd){
+		$.ajax({
+			type : "get",
+			url : "${contextPath}/myPage/modifyCartGoodsQty",
+			data : {
+				"cartCd" : cartCd,
+				"cartGoodsQty" : $("#cartGoodsQty" + cartCd).val()
+			},
+			success:function(){
+				getTotalPrice();
+			}
+		});
+	}
+
+</script>
 </head>
 <body>
 	<c:if test="${sessionScope.memberId eq null}">
@@ -45,11 +83,11 @@
                   <table class="table">
                       <thead>
                           <tr>
-                          	  <th></th>
+                          	  <th width="3%"></th>
                               <th scope="col">상품</th>
-                              <th scope="col">가격</th>
-                              <th scope="col">수량</th>
-                              <th scope="col">금액</th>
+                              <th scope="col" width="20%">가격</th>
+                              <th scope="col" width="20%">수량</th>
+                              <th scope="col" width="20%">금액</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -66,7 +104,7 @@
 		                              <td>
 		                                  <div class="media">
 		                                      <div class="d-flex">
-		                                          <img src="${contextPath }/thumbnails?profile=${cartList.profile}" alt="">
+		                                          <img src="${contextPath }/thumbnails?profile=${cartList.profile}" width="80" height="80">
 		                                      </div>
 		                                      <div class="media-body">
 		                                          <h6>
@@ -77,7 +115,7 @@
 		                                  </div>
 		                              </td>
 		                              <td>
-		                                  <h5>${cartList.price }</h5>
+		                                  <h5><fmt:formatNumber value="${cartList.price }"/></h5>
 		                              </td>
 		                              <td>
 		                                  <div class="product_count">
@@ -86,7 +124,7 @@
 		                                  </div>
 		                              </td>
 		                              <td>
-		                                  <h5>${cartList.price }*${cartList.cartGoodsQty }</h5>
+		                                  <h5><fmt:formatDate value="${cartList.enrollDt }" pattern="yyyy-MM-dd"/></h5>
 		                              </td>
                       				</tr>
                       			</c:forEach>
@@ -95,7 +133,6 @@
                           
                           <tr class="bottom_button">
                               <td>
-                                  <a class="button" href="#">Update Cart</a>
                               </td>
                               <td>
 
@@ -104,11 +141,7 @@
 
                               </td>
                               <td>
-                                  <div class="cupon_text d-flex align-items-center">
-                                      <input type="text" placeholder="Coupon Code">
-                                      <a class="primary-btn" href="#">Apply</a>
-                                      <a class="button" href="#">Have a Coupon?</a>
-                                  </div>
+                                  <a class="button" href="#">삭제</a>
                               </td>
                           </tr>
                           <tr>

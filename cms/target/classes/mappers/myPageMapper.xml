@@ -77,6 +77,7 @@
 		<result column="DISCOUNT_RATE" property="discountRate"/>
 		<result column="POINT" property="point"/>
 		<result column="PROFILE" property="profile"/>
+		<result column="ENROLL_DT" property="enrollDt"/>
 	</resultMap>
 	
 	<select id="selectListMyCart" parameterType="String" resultMap="myCartListMap">
@@ -84,6 +85,7 @@
 				C.CART_CD 			AS CART_CD,
 				C.MEMBER_ID	 		AS MEMBER_ID,
 				C.CART_GOODS_QTY	AS CART_GOODS_QTY,
+				C.ENROLL_DT			AS ENROLL_DT,
 				G.GOODS_CD			AS GOODS_CD,
 				G.GOODS_NM			AS GOODS_NM,
 				G.PRICE				AS PRICE,
@@ -107,5 +109,38 @@
 				MEMBER_ID = #{memberId}
 	</select>
 	
+	<select id="selectOneDuplicatedCart" parameterType="hashmap" resultType="CartDTO">
+		SELECT
+				*
+		FROM
+				CART
+		WHERE
+				MEMBER_ID = #{memberId} AND
+				GOODS_CD = #{goodsCd}
+	</select>
+	
+	<insert id="insertCart" parameterType="CartDTO">
+		INSERT INTO
+				CART (GOODS_CD,
+					  CART_GOODS_QTY,
+					  MEMBER_ID,
+					  ENROLL_DT
+				)
+		VALUES (
+				#{goodsCd},
+				#{cartGoodsQty},
+				#{memberId},
+				NOW()
+		)
+	</insert>
+	
+	<update id="updateCartGoodsQty" parameterType="hashmap">
+		UPDATE
+				CART
+		SET
+				CART_GOODS_QTY = #{cartGoodsQty}
+		WHERE
+				CART_CD = #{cartCd}
+	</update>
 	
 </mapper>

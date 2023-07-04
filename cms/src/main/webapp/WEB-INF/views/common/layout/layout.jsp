@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style1.css">
   
-  <script src="${contextPath }/resources/bootstrap/js/main.js"></script>
+  <script src="${contextPath }/resources/bootstrap/vendors/jquery/jquery-3.2.1.min.js"></script>
   
 </head>
 <body>
@@ -37,13 +37,13 @@
 
 
 
-  <script src="${contextPath }/resources/bootstrap/vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="${contextPath }/resources/bootstrap/vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="${contextPath }/resources/bootstrap/vendors/skrollr.min.js"></script>
   <script src="${contextPath }/resources/bootstrap/vendors/owl-carousel/owl.carousel.min.js"></script>
   <script src="${contextPath }/resources/bootstrap/vendors/nice-select/jquery.nice-select.min.js"></script>
   <script src="${contextPath }/resources/bootstrap/vendors/jquery.ajaxchimp.min.js"></script>
   <script src="${contextPath }/resources/bootstrap/vendors/mail-script.js"></script>
+  <script src="${contextPath }/resources/bootstrap/js/main.js"></script>
   
 </body>
 </html>

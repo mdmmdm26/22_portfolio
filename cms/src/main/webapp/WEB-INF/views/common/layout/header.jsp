@@ -24,25 +24,6 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item active"><a class="nav-link" href="${contextPath }/">Home</a></li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Shop</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="${contextPath }/goods/goodsList?category=all">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                </ul>
-			  </li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Blog</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                </ul>
-			  </li>
 			  <c:choose>
 			  	<c:when test="${sessionScope.role eq 'admin' }">
 			  		<li class="nav-item submenu dropdown">
@@ -58,6 +39,25 @@
 				  </li>
 			  	</c:when>
 			  	<c:otherwise>
+		              <li class="nav-item submenu dropdown">
+		                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+		                  aria-expanded="false">Shop</a>
+		                <ul class="dropdown-menu">
+		                  <li class="nav-item"><a class="nav-link" href="${contextPath }/goods/goodsList?category=all">Shop Category</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+		                </ul>
+					  </li>
+		              <li class="nav-item submenu dropdown">
+		                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+		                  aria-expanded="false">Blog</a>
+		                <ul class="dropdown-menu">
+		                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+		                </ul>
+					  </li>
 					  <li class="nav-item submenu dropdown">
 		                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 		                  aria-expanded="false">My Pages</a>
